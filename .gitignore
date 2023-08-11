@@ -2,6 +2,16 @@
 /dist
 /node_modules
 
+# Track the uploads
+
+# Ignore specific files inside uploads
+uploads/*.jpg
+uploads/*.jpeg
+uploads/*.png
+uploads/*.gif
+
+# Tests
+.env
 # Logs
 logs
 *.log
@@ -33,3 +43,4 @@ lerna-debug.log*
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
