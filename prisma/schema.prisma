@@ -1,0 +1,88 @@
+// This is your Prisma schema Photo,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Admin {
+  id        String    @id @default(uuid()) @db.VarChar(255)
+  name      String
+  email     String    @unique @db.VarChar(255)
+  password  String
+  token     String?
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  Product Product[]
+}
+
+model User {
+  id        String    @id @default(uuid()) @db.VarChar(255)
+  name      String
+  email     String    @unique @db.VarChar(255)
+  password  String
+  token     String?
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  Order Order[]
+}
+
+model Order {
+  id          String  @id @default(uuid()) @db.VarChar(255)
+  orderedById String
+  OrderedBy   User    @relation(fields: [orderedById], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  invoiceId   String
+  Invoice     Invoice @relation(fields: [invoiceId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  quantity    Int     @default(1)
+  rate        Int
+  totalPrice  Int
+
+  Product Product[]
+}
+
+model Invoice {
+  id     String        @id @default(uuid()) @db.VarChar(255)
+  total  Int
+  status InoviceStatus @default(UNPAID)
+
+  Order Order[]
+}
+
+model Product {
+  id          String    @id @default(uuid()) @db.VarChar(255)
+  title       String
+  desc        String
+  price       Float     @default(0.0)
+  updatedAt   DateTime  @updatedAt
+  deletedAt   DateTime?
+  createdById String?   @db.VarChar(255)
+  CreatedBy   Admin?    @relation(fields: [createdById], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  orderId     String?   @db.VarChar(255)
+  Order       Order?    @relation(fields: [orderId], references: [id])
+
+  Photo Photo[]
+}
+
+model Photo {
+  id        String    @id @default(uuid()) @db.VarChar(255)
+  name      String
+  link      String
+  productId String
+  Product   Product   @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+}
+
+enum InoviceStatus {
+  UNPAID
+  PAID
+  CANCELED
+}
