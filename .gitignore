@@ -2,16 +2,6 @@
 /dist
 /node_modules
 
-# Track the uploads
-
-# Ignore specific files inside uploads
-uploads/*.jpg
-uploads/*.jpeg
-uploads/*.png
-uploads/*.gif
-
-# Tests
-.env
 # Logs
 logs
 *.log
@@ -23,6 +13,8 @@ lerna-debug.log*
 
 # OS
 .DS_Store
+.env
+.env.local
 
 # Tests
 /coverage
