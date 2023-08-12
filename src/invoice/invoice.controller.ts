@@ -21,7 +21,7 @@ import { IUser } from 'src/utils/Iuser';
 export class InvoiceController {
   constructor(private readonly invoiceService: InvoiceService) {}
 
-  @Post()
+  @Post('create')
   @ApiBearerAuth()
   @UseGuards(UserAuthGuard)
   create(@Body() createInvoiceDto: CreateInvoiceDto, @Request() req: IUser) {
