@@ -65,7 +65,7 @@ let InvoiceService = exports.InvoiceService = class InvoiceService {
                     total: (await totalPrices.reduce((a, b) => a + b)) || 0,
                 },
             });
-            return (0, responser_1.Responser)({
+            return (0, responser_1.default)({
                 statusCode: 200,
                 message: 'Invoice created',
                 body: NewInvoice,

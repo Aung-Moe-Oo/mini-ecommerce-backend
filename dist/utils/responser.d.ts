@@ -4,7 +4,7 @@ type responseInterface<T> = {
     devMessage: string;
     body: T;
 };
-export declare const Responser: ({ statusCode, message, devMessage, body, }: responseInterface<any>) => {
+declare const Responser: ({ statusCode, message, devMessage, body, }: responseInterface<any>) => {
     meta: {
         success: boolean;
         message: string;
@@ -12,4 +12,4 @@ export declare const Responser: ({ statusCode, message, devMessage, body, }: res
     };
     body: any;
 };
-export {};
+export default Responser;

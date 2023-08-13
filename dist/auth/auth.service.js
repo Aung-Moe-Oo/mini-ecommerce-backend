@@ -30,7 +30,7 @@ let AuthService = exports.AuthService = class AuthService {
                     password: await (0, argon2_1.hash)(password),
                 },
             });
-            return (0, responser_1.Responser)({
+            return (0, responser_1.default)({
                 statusCode: 200,
                 message: 'User registered',
                 body: user,
@@ -63,7 +63,7 @@ let AuthService = exports.AuthService = class AuthService {
                             }),
                         },
                     });
-                    return (0, responser_1.Responser)({
+                    return (0, responser_1.default)({
                         statusCode: 200,
                         message: 'User login success',
                         body: { token: activeUser.token },
@@ -71,7 +71,7 @@ let AuthService = exports.AuthService = class AuthService {
                     });
                 }
                 else {
-                    return (0, responser_1.Responser)({
+                    return (0, responser_1.default)({
                         statusCode: 401,
                         message: 'User Wrong Password',
                         body: null,
@@ -79,7 +79,7 @@ let AuthService = exports.AuthService = class AuthService {
                     });
                 }
             }
-            return (0, responser_1.Responser)({
+            return (0, responser_1.default)({
                 statusCode: 404,
                 message: 'User has not been registered yet.',
                 body: null,

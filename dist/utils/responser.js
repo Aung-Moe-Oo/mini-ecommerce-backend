@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Responser = void 0;
 const Responser = ({ statusCode, message, devMessage, body, }) => {
     return {
         meta: {
@@ -11,5 +10,5 @@ const Responser = ({ statusCode, message, devMessage, body, }) => {
         body: body,
     };
 };
-exports.Responser = Responser;
+exports.default = Responser;
 //# sourceMappingURL=responser.js.map

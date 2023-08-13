@@ -47,7 +47,7 @@ let ProductService = exports.ProductService = class ProductService {
                     },
                 });
             });
-            return (0, responser_1.Responser)({
+            return (0, responser_1.default)({
                 statusCode: 200,
                 message: 'Product created',
                 body: createdProduct,
@@ -70,7 +70,7 @@ let ProductService = exports.ProductService = class ProductService {
                     Photo: true,
                 },
             });
-            return (0, responser_1.Responser)({
+            return (0, responser_1.default)({
                 statusCode: 200,
                 message: 'Products found',
                 body: createdProduct,
