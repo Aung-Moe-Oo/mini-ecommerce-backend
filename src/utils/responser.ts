@@ -1,13 +1,10 @@
-import { HttpException } from '@nestjs/common';
-
 type responseInterface<T> = {
   statusCode: number;
   message: string;
   devMessage: string;
   body: T;
 };
-
-export const Responser = ({
+const Responser = ({
   statusCode,
   message,
   devMessage,
@@ -22,3 +19,5 @@ export const Responser = ({
     body: body,
   };
 };
+
+export default Responser;

@@ -2,7 +2,7 @@ import { HttpException, Injectable } from '@nestjs/common';
 import { LoginDto, RegisterDto } from './dto/create-auth.dto';
 import { hash, verify } from 'argon2';
 import { PrismaService } from 'src/prisma.service';
-import { Responser } from 'src/utils/responser';
+import Responser from 'src/utils/responser';
 import { JwtService } from '@nestjs/jwt';
 
 @Injectable()

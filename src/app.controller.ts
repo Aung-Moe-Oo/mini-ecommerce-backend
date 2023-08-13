@@ -8,7 +8,7 @@ import {
 import { AppService } from './app.service';
 import { Response } from 'express';
 import { ApiOperation } from '@nestjs/swagger';
-import { Responser } from './utils/responser';
+import Responser from './utils/responser';
 
 @Controller()
 export class AppController {

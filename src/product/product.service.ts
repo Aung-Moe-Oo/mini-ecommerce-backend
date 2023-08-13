@@ -1,7 +1,7 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { PrismaService } from 'src/prisma.service';
-import { Responser } from 'src/utils/responser';
+import Responser from 'src/utils/responser';
 import { IUser } from 'src/utils/Iuser';
 
 @Injectable()

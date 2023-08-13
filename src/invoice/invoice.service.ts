@@ -1,7 +1,7 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { CreateInvoiceDto } from './dto/create-invoice.dto';
 import { UpdateInvoiceDto } from './dto/update-invoice.dto';
-import { Responser } from 'src/utils/responser';
+import Responser from 'src/utils/responser';
 import { PrismaService } from 'src/prisma.service';
 import { IUser } from 'src/utils/Iuser';
 
