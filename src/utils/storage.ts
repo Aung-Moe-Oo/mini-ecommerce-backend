@@ -1,6 +1,5 @@
 import { HttpException, Injectable, PipeTransform } from '@nestjs/common';
 import { diskStorage } from 'multer';
-import { extname } from 'path';
 import { unlink } from 'node:fs';
 import { PrismaClient } from '@prisma/client';
 
