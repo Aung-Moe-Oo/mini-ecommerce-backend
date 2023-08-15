@@ -11,7 +11,7 @@ import {
 import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { FilesInterceptor } from '@nestjs/platform-express';
-import { FileSizeValidationPipe, fileStorage } from 'src/utils/storage';
+import { FileSizeValidationPipe, fileStorage } from '../utils/storage';
 import { AdminAuthGuard } from 'src/auth/auth.guard';
 import { IUser } from 'src/utils/Iuser';
 import {
