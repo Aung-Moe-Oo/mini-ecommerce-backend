@@ -1,9 +1,30 @@
 import { HttpException, Injectable } from '@nestjs/common';
 import { CreateInvoiceDto } from './dto/create-invoice.dto';
 import { UpdateInvoiceDto } from './dto/update-invoice.dto';
-import Responser from 'src/utils/responser';
 import { PrismaService } from 'src/prisma.service';
 import { IUser } from 'src/utils/Iuser';
+
+type responseInterface<T> = {
+  statusCode: number;
+  message: string;
+  devMessage: string;
+  body: T;
+};
+const Responser = ({
+  statusCode,
+  message,
+  devMessage,
+  body,
+}: responseInterface<typeof body>) => {
+  return {
+    meta: {
+      success: statusCode >= 200 && statusCode <= 300 ? true : false,
+      message: message,
+      devMessage: devMessage,
+    },
+    body: body,
+  };
+};
 
 @Injectable()
 export class InvoiceService {

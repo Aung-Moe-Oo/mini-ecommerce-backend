@@ -2,8 +2,29 @@ import { HttpException, Injectable } from '@nestjs/common';
 import { LoginDto, RegisterDto } from './dto/create-user.dto';
 import { hash, verify } from 'argon2';
 import { PrismaService } from 'src/prisma.service';
-import Responser from 'src/utils/responser';
 import { JwtService } from '@nestjs/jwt';
+
+type responseInterface<T> = {
+  statusCode: number;
+  message: string;
+  devMessage: string;
+  body: T;
+};
+const Responser = ({
+  statusCode,
+  message,
+  devMessage,
+  body,
+}: responseInterface<typeof body>) => {
+  return {
+    meta: {
+      success: statusCode >= 200 && statusCode <= 300 ? true : false,
+      message: message,
+      devMessage: devMessage,
+    },
+    body: body,
+  };
+};
 
 @Injectable()
 export class AuthService {
